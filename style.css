@@ -1,0 +1,130 @@
+/* General website styling */
+
+
+/* Main heading */
+
+/* General website styling */
+
+body {
+    background-color: #161f38;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Main heading */
+
+.gradient-text {
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #8b5cf6,
+        #ff42d0
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    font-size: 50px;
+    font-weight: bold;
+}
+@keyframes textGlow {
+
+    from {
+        text-shadow:
+            0 0 5px #00eaff,
+            0 0 10px #00eaff;
+    }
+
+    to {
+        text-shadow:
+            0 0 10px #00eaff,
+            0 0 20px #00eaff,
+            0 0 40px #008cff,
+            0 0 60px #008cff;
+    }
+
+}
+
+.neon-text {
+    animation: textGlow 2s infinite alternate;
+}
+
+
+.neon-subtitle{
+    color: #A855F7;
+}
+
+.neon-button {
+    background: #0b1020;
+    color: #00eaff;
+
+    border: 2px solid #00eaff;
+    border-radius: 10px;
+
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 10px #00eaff,
+                0 0 20px #00eaff;
+
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+
+    from {
+        box-shadow: 0 0 5px #00eaff,
+                    0 0 10px #00eaff;
+    }
+
+    to {
+        box-shadow: 0 0 15px #00eaff,
+                    0 0 35px #00eaff,
+                    0 0 50px #00eaff;
+    }
+
+}
+.neon-button:hover {
+    color: #080D1B;
+    background: #00eaff;
+
+    box-shadow: 0 0 20px #00eaff,
+                0 0 40px #00eaff,
+                0 0 70px #00eaff;
+
+    transform: scale(1.05);
+}
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+.neon-button {
+    animation: float 1.5s infinite alternate;
+}
+@keyframes colorGlow {
+    0% {
+        box-shadow: 0 0 10px cyan;
+    }
+
+    50% {
+        box-shadow: 0 0 30px purple;
+    }
+
+    100% {
+        box-shadow: 0 0 10px cyan;
+    }
+}
+
+.neon-button {
+    animation: colorGlow 3s infinite;
+}
