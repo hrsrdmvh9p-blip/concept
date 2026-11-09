@@ -28,6 +28,7 @@ body {
     color: transparent;
     font-size: 50px;
     font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 @keyframes textGlow {
 
@@ -53,7 +54,7 @@ body {
 
 
 .neon-subtitle{
-    color: #A855F7;
+    color: #65dafa;
 }
 
 .neon-button {
@@ -88,16 +89,7 @@ body {
     }
 
 }
-.neon-button:hover {
-    color: #080D1B;
-    background: #00eaff;
 
-    box-shadow: 0 0 20px #00eaff,
-                0 0 40px #00eaff,
-                0 0 70px #00eaff;
-
-    transform: scale(1.05);
-}
 @keyframes float {
     from {
         transform: translateY(0);
@@ -126,5 +118,139 @@ body {
 }
 
 .neon-button {
+    animation: colorGlow 3s infinite;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.card {
+    width: 250px;
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(0, 234, 255, 0.4);
+    border-radius: 15px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
+
+    color: white;
+    text-align: center;
+
+    transition: 0.3s ease;
+}
+.gradient-text {
+    background: linear-gradient(
+        90deg,
+        #00eaff
+        #8b5cf6
+        #ff42d0
+    )
+    color: transparent;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+.card {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+.card {
+    animation: neonGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 10px #00ffff,
+                    0 0 20px rgba(0, 255, 255, 0.4);
+        border-color: #00ffff;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #a855f7,
+                    0 0 30px rgba(168, 85, 247, 0.6);
+        border-color: #a855f7;
+    }
+}
+.glow-button:hover {
+    color: #080D1B;
+    background: #00eaff;
+
+    box-shadow: 0 0 20px #00eaff,
+                0 0 40px #00eaff,
+                0 0 70px #00eaff;
+
+    transform: scale(1.05);
+}
+.glow-button {
+    background: #0b1020;
+    color: #00eaff;
+
+    border: 2px solid #00eaff;
+    border-radius: 10px;
+
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 10px #00eaff,
+                0 0 20px #00eaff;
+
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+
+    from {
+        box-shadow: 0 0 5px #00eaff,
+                    0 0 10px #00eaff;
+    }
+
+    to {
+        box-shadow: 0 0 15px #00eaff,
+                    0 0 35px #00eaff,
+                    0 0 50px #00eaff;
+    }
+
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+.glow-button {
+    animation: float 1.5s infinite alternate;
+}
+@keyframes colorGlow {
+    0% {
+        box-shadow: 0 0 10px cyan;
+    }
+
+    50% {
+        box-shadow: 0 0 30px purple;
+    }
+
+    100% {
+        box-shadow: 0 0 10px cyan;
+    }
+}
+
+.glow-button {
     animation: colorGlow 3s infinite;
 }
