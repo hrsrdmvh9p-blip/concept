@@ -351,14 +351,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         return {
-            key,
-            name: data.name || key,
-            organization: data.organization || "",
-            status: data.status || "Not specified",
-            resultStatus,
-            reasons,
-            unknown
-        };
+    key,
+    data,
+    name: data.name || key,
+    organization: data.organization || "",
+    category: data.category || "Scholarship",
+    status: data.status || "Not specified",
+    resultStatus,
+    reasons,
+    unknown
+};
 
     }
 
@@ -367,162 +369,433 @@ document.addEventListener("DOMContentLoaded", function () {
     // DISPLAY RESULTS
     // =====================================
 
-    function displayResults(matches) {
+    
+function displayResults(matches) {
 
-        const possible = matches.filter(
-            item => item.resultStatus === "Possible Match"
+    const possible = matches.filter(
+        item => item.resultStatus === "Possible Match"
+    );
+
+    const verification = matches.filter(
+        item => item.resultStatus === "Needs Verification"
+    );
+
+    const notQualified = matches.filter(
+        item => item.resultStatus === "May Not Qualify"
+    );
+
+    const orderedResults = [
+        ...possible,
+        ...verification,
+        ...notQualified
+    ];
+
+    // Safely display text from scholarship records
+    function escapeHTML(value) {
+        return String(value ?? "").replace(/[&<>"']/g, char => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        })[char]);
+    }
+
+    // Display arrays as HTML lists
+    function renderList(items, emptyMessage = "Information not specified.") {
+
+        if (!Array.isArray(items) || items.length === 0) {
+            return `<li>${escapeHTML(emptyMessage)}</li>`;
+        }
+
+        return items.map(item => `
+            <li>${escapeHTML(item)}</li>
+        `).join("");
+    }
+
+    // Display official links
+    function renderLinks(links, submission) {
+
+        let allLinks = Array.isArray(links) ? [...links] : [];
+
+        if (submission?.applicationLink) {
+            allLinks.unshift({
+                label: "Application Portal",
+                url: submission.applicationLink
+            });
+        }
+
+        const uniqueLinks = allLinks.filter((link, index, array) =>
+            link.url &&
+            array.findIndex(item => item.url === link.url) === index
         );
 
-        const verification = matches.filter(
-            item => item.resultStatus === "Needs Verification"
-        );
+        if (uniqueLinks.length === 0) {
+            return "<p>No official links provided.</p>";
+        }
 
-        const notQualified = matches.filter(
-            item => item.resultStatus === "May Not Qualify"
-        );
+        return uniqueLinks.map(link => {
 
-        const orderedResults = [
-            ...possible,
-            ...verification,
-            ...notQualified
-        ];
+            const safeURL = /^https?:\/\//i.test(link.url)
+                ? escapeHTML(link.url)
+                : "";
+
+            if (!safeURL) return "";
+
+            return `
+                <a
+                    href="${safeURL}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="eligibility-official-link"
+                >
+                    ${escapeHTML(link.label || "Official Website")}
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            `;
+
+        }).join("");
+    }
 
 
-        let html = `
+    let html = `
 
-            <div class="eligibility-results-heading">
+        <div class="eligibility-results-heading">
 
-                <div>
-                    <span class="eligibility-eyebrow">YOUR MATCHES</span>
+            <div>
+                <span class="eligibility-eyebrow">YOUR MATCHES</span>
 
-                    <h2>Scholarship Recommendations</h2>
+                <h2>Scholarship Recommendations</h2>
 
-                    <p>
-                        Here are the scholarships evaluated using your information.
-                    </p>
-                </div>
-
+                <p>
+                    Explore scholarship opportunities based on
+                    your submitted qualifications.
+                </p>
             </div>
 
-            <div class="eligibility-result-summary">
+        </div>
 
-                <div>
-                    <strong>${possible.length}</strong>
-                    <span>Possible Matches</span>
-                </div>
 
-                <div>
-                    <strong>${verification.length}</strong>
-                    <span>Needs Verification</span>
-                </div>
+        <div class="eligibility-result-summary">
 
-                <div>
-                    <strong>${notQualified.length}</strong>
-                    <span>May Not Qualify</span>
-                </div>
-
+            <div>
+                <strong>${possible.length}</strong>
+                <span>Possible Matches</span>
             </div>
 
-            <div class="eligibility-result-list">
+            <div>
+                <strong>${verification.length}</strong>
+                <span>Needs Verification</span>
+            </div>
+
+            <div>
+                <strong>${notQualified.length}</strong>
+                <span>May Not Qualify</span>
+            </div>
+
+        </div>
+
+
+        <div class="eligibility-result-list">
+
+    `;
+
+
+    if (orderedResults.length === 0) {
+
+        html += `
+            <div class="eligibility-results-placeholder">
+                <h3>No Scholarships Found</h3>
+                <p>No scholarship records are currently available.</p>
+            </div>
+        `;
+
+    }
+
+
+    orderedResults.forEach(item => {
+
+        const data = item.data;
+        const overview = data.overview || {};
+        const submission = data.submission || {};
+
+        const description =
+            overview.about ||
+            data.description ||
+            "No description provided.";
+
+        const benefits =
+            data.benefits?.length
+                ? data.benefits
+                : overview.coverage;
+
+        const deadline =
+            overview.deadline ||
+            submission.deadline ||
+            "Not specified.";
+
+        const applicationMethod =
+            submission.method || "Not specified.";
+
+        const applicationLocation =
+            submission.location || "Not specified.";
+
+        const applicationFee =
+            submission.applicationFee || "Not specified.";
+
+        const applicationInstructions =
+            submission.instructions || "Not specified.";
+
+
+        const reasonsHTML = renderList(
+            item.reasons,
+            "No definite disqualifying condition was found in the available information."
+        );
+
+        const unknownHTML = item.unknown.length
+            ? renderList(item.unknown)
+            : "";
+
+
+        html += `
+
+            <article class="eligibility-result-card">
+
+                <!-- SCHOLARSHIP HEADER -->
+
+                <div class="eligibility-result-top">
+
+                    <div>
+
+                        <span class="eligibility-result-category">
+                            ${escapeHTML(item.category)}
+                        </span>
+
+                        <h3>${escapeHTML(item.name)}</h3>
+
+                        <p class="eligibility-organization">
+                            ${escapeHTML(item.organization)}
+                        </p>
+
+                    </div>
+
+                    <span class="eligibility-result-badge">
+                        ${escapeHTML(item.resultStatus)}
+                    </span>
+
+                </div>
+
+
+                <!-- APPLICATION STATUS -->
+
+                <div class="eligibility-program-status">
+                    <strong>Application Status:</strong>
+                    ${escapeHTML(item.status)}
+                </div>
+
+
+              
+<!-- ALL SCHOLARSHIP INFORMATION DROPDOWN -->
+
+<details class="eligibility-details-dropdown">
+
+    <summary>
+        <span>View Scholarship Details</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </summary>
+
+    <div class="eligibility-details-content">
+
+        <!-- DESCRIPTION -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-circle-info"></i>
+                About the Scholarship
+            </h4>
+
+            <p>${escapeHTML(description)}</p>
+
+            <p>
+                <strong>Target Students:</strong>
+                ${escapeHTML(overview.targetStudents || "Not specified.")}
+            </p>
+
+        </section>
+
+
+        <!-- ELIGIBILITY -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-user-check"></i>
+                Eligibility Qualifications
+            </h4>
+
+            <ul>
+                ${renderList(overview.eligibility)}
+            </ul>
+
+        </section>
+
+
+        <!-- EVALUATION -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-clipboard-check"></i>
+                Your Eligibility Evaluation
+            </h4>
+
+            <div class="eligibility-result-reasons">
+                <strong>Evaluation:</strong>
+                <ul>${reasonsHTML}</ul>
+            </div>
+
+            ${
+                unknownHTML
+                ? `
+                    <div class="eligibility-result-unknown">
+                        <strong>Additional Verification:</strong>
+                        <ul>${unknownHTML}</ul>
+                    </div>
+                `
+                : ""
+            }
+
+        </section>
+
+
+        <!-- BENEFITS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-gift"></i>
+                Scholarship Benefits
+            </h4>
+
+            <ul>${renderList(benefits)}</ul>
+
+        </section>
+
+
+        <!-- IMPORTANT DATES -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-calendar-days"></i>
+                Application Period and Important Dates
+            </h4>
+
+            <p>
+                <strong>Deadline:</strong>
+                ${escapeHTML(deadline)}
+            </p>
+
+            <ul>${renderList(overview.importantDates)}</ul>
+
+        </section>
+
+
+        <!-- REQUIREMENTS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-folder-open"></i>
+                Required Documents
+            </h4>
+
+            <ul>${renderList(data.requirements)}</ul>
+
+        </section>
+
+
+        <!-- APPLICATION PROCESS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-list-ol"></i>
+                How to Apply
+            </h4>
+
+            <ul>${renderList(data.applicationGuide)}</ul>
+
+        </section>
+
+
+        <!-- SUBMISSION DETAILS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-paper-plane"></i>
+                Application Details
+            </h4>
+
+            <p><strong>Method:</strong> ${escapeHTML(applicationMethod)}</p>
+            <p><strong>Submission Location:</strong> ${escapeHTML(applicationLocation)}</p>
+            <p><strong>Application Fee:</strong> ${escapeHTML(applicationFee)}</p>
+            <p><strong>Instructions:</strong> ${escapeHTML(applicationInstructions)}</p>
+
+        </section>
+
+
+        <!-- REMINDERS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-bell"></i>
+                Important Reminders
+            </h4>
+
+            <ul>${renderList(data.reminders)}</ul>
+
+        </section>
+
+
+        <!-- OFFICIAL LINKS -->
+
+        <section class="eligibility-information-section">
+
+            <h4>
+                <i class="fa-solid fa-link"></i>
+                Official Websites and Application Links
+            </h4>
+
+            <div class="eligibility-official-links">
+                ${renderLinks(data.officialLinks, submission)}
+            </div>
+
+        </section>
+
+    </div>
+
+</details>
+
+            </article>
 
         `;
 
+    });
 
-        if (orderedResults.length === 0) {
+    html += `</div>`;
 
-            html += `
-                <div class="eligibility-results-placeholder">
-                    <h3>No Scholarships Found</h3>
-                    <p>No scholarship records are currently available.</p>
-                </div>
-            `;
+    resultsSection.innerHTML = html;
 
-        }
+    resultsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 
-
-        orderedResults.forEach(item => {
-
-            const reasonsHTML = item.reasons.length
-                ? item.reasons.map(reason => `<li>${reason}</li>`).join("")
-                : "<li>No definite disqualifying condition was found in the available information.</li>";
-
-            const unknownHTML = item.unknown.length
-                ? item.unknown.map(reason => `<li>${reason}</li>`).join("")
-                : "";
-
-
-            html += `
-
-                <article class="eligibility-result-card">
-
-                    <div class="eligibility-result-top">
-
-                        <div>
-                            <span class="eligibility-result-category">
-                                ${item.organization}
-                            </span>
-
-                            <h3>${item.name}</h3>
-                        </div>
-
-                        <span class="eligibility-result-badge">
-                            ${item.resultStatus}
-                        </span>
-
-                    </div>
-
-                    <p class="eligibility-program-status">
-                        Application Status: ${item.status}
-                    </p>
-
-                    <div class="eligibility-result-reasons">
-
-                        <strong>Evaluation:</strong>
-
-                        <ul>
-                            ${reasonsHTML}
-                        </ul>
-
-                    </div>
-
-                    ${
-                        unknownHTML
-                        ? `
-                            <div class="eligibility-result-unknown">
-
-                                <strong>Additional Verification:</strong>
-
-                                <ul>
-                                    ${unknownHTML}
-                                </ul>
-
-                            </div>
-                        `
-                        : ""
-                    }
-
-                    <a href="scholarships.html" class="eligibility-view-btn">
-                        View Scholarship Directory
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </article>
-
-            `;
-
-        });
-
-
-        html += `</div>`;
-
-        resultsSection.innerHTML = html;
-
-        resultsSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
+}
 
 
     // =====================================

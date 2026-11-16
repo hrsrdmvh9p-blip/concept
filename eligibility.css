@@ -643,3 +643,197 @@
     }
 
 }
+
+/* =========================================
+   COMPLETE SCHOLARSHIP INFORMATION
+========================================= */
+
+.eligibility-result-card {
+    width: 100%;
+    min-width: 0;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-sizing: border-box;
+}
+
+.eligibility-result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.eligibility-result-top h3 {
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.eligibility-organization {
+    color: var(--tracker-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.eligibility-program-status {
+    margin: 18px 0;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: rgba(242, 229, 198, 0.07);
+    color: var(--tracker-cream);
+    font-size: 12px;
+}
+
+.eligibility-information-section {
+    padding: 20px 0;
+    border-top: 1px solid rgba(242, 229, 198, 0.16);
+}
+
+.eligibility-information-section h4,
+.eligibility-result-reasons h4 {
+    color: var(--tracker-cream);
+    font-size: 15px;
+    margin: 0 0 13px;
+}
+
+.eligibility-information-section h4 i,
+.eligibility-result-reasons h4 i {
+    margin-right: 8px;
+}
+
+.eligibility-information-section p,
+.eligibility-information-section li,
+.eligibility-result-reasons li,
+.eligibility-result-unknown li {
+    color: var(--tracker-muted);
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.eligibility-information-section p {
+    margin: 0 0 10px;
+}
+
+.eligibility-information-section ul,
+.eligibility-result-reasons ul,
+.eligibility-result-unknown ul {
+    padding-left: 21px;
+    margin: 0;
+}
+
+.eligibility-information-section li,
+.eligibility-result-reasons li,
+.eligibility-result-unknown li {
+    margin-bottom: 7px;
+}
+
+.eligibility-result-reasons {
+    padding: 18px;
+    margin: 10px 0;
+    border-radius: 13px;
+    background: rgba(242, 229, 198, 0.06);
+    border: 1px solid rgba(242, 229, 198, 0.16);
+}
+
+.eligibility-result-unknown {
+    margin-top: 17px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(242, 229, 198, 0.15);
+}
+
+.eligibility-result-unknown strong {
+    color: var(--tracker-cream);
+    font-size: 12px;
+}
+
+.eligibility-official-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.eligibility-official-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 15px;
+
+    color: var(--tracker-cream);
+    text-decoration: none;
+    font-size: 12px;
+
+    background: rgba(242, 229, 198, 0.06);
+    border: 1px solid rgba(242, 229, 198, 0.17);
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+.eligibility-official-link:hover {
+    background: rgba(242, 229, 198, 0.13);
+    border-color: rgba(242, 229, 198, 0.4);
+}
+
+.eligibility-view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ELIGIBILITY DETAILS DROPDOWN */
+
+.eligibility-details-dropdown {
+    margin-top: 15px;
+    border: 1px solid rgba(242, 229, 198, 0.20);
+    border-radius: 12px;
+    background: rgba(242, 229, 198, 0.04);
+    overflow: hidden;
+}
+
+.eligibility-details-dropdown summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: var(--tracker-cream, #F2E5C6);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.eligibility-details-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.eligibility-details-dropdown summary i {
+    transition: transform 0.3s ease;
+}
+
+.eligibility-details-dropdown[open] summary i {
+    transform: rotate(180deg);
+}
+
+.eligibility-details-content {
+    padding: 5px 16px 16px;
+    border-top: 1px solid rgba(242, 229, 198, 0.12);
+}
+
+.eligibility-details-content ul {
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+.eligibility-details-content li {
+    margin-bottom: 6px;
+}
