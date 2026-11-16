@@ -1413,3 +1413,51 @@ body {
     position: relative;
     z-index: 1;
 }
+/* ==========================================
+   ELIGIBILITY CHECKER CROSS-PAGE MORPH
+========================================== */
+
+/* Homepage source card */
+.feature-card[href="eligibility.html"] {
+    view-transition-name: eligibility-morph;
+}
+
+/* Entire Eligibility Checker page */
+.eligibility-morph {
+    view-transition-name: eligibility-morph;
+}
+
+/* Same animation settings as Directory */
+::view-transition-group(eligibility-morph) {
+    animation-duration: 1.5s;
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-image-pair(eligibility-morph) {
+    isolation: isolate;
+}
+/* ==========================================
+   TRACKER CROSS-PAGE MORPH
+========================================== */
+
+/* Homepage source card */
+.feature-card[href="tracker.html"] {
+    view-transition-name: tracker-morph;
+}
+
+/* Entire Tracker page */
+.tracker-morph {
+    view-transition-name: tracker-morph;
+}
+
+/* Same animation as Directory */
+::view-transition-group(tracker-morph) {
+    animation-duration: 1.5s;
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-image-pair(tracker-morph) {
+    isolation: isolate;
+}
