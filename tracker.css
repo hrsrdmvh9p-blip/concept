@@ -1,0 +1,1013 @@
+
+/* =========================================
+   ISKOURCE - SCHOLARSHIP TRACKER
+   MAROON GLASSMORPHISM DESIGN
+========================================= */
+
+
+/* COLOR VARIABLES */
+
+:root {
+    --tracker-dark: #3A0F14;
+    --tracker-burgundy: #601C24;
+    --tracker-cream: #F2E5C6;
+
+    --tracker-glass: rgba(96, 28, 36, 0.38);
+    --tracker-glass-light: rgba(255, 255, 255, 0.07);
+    --tracker-border: rgba(242, 229, 198, 0.20);
+
+    --tracker-muted: rgba(242, 229, 198, 0.65);
+}
+
+html {
+    min-height: 100%;
+    background-color: #3A0F14;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    min-height: 100vh;
+    background: transparent;
+    color: var(--tracker-cream);
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.tracker-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tracker-eyebrow {
+    display: inline-block;
+    color: var(--tracker-cream);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    opacity: 0.75;
+}
+
+.tracker-heading h1 {
+    color: var(--tracker-cream);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.tracker-heading p {
+    color: var(--tracker-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0;
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.tracker-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 38px;
+}
+
+.tracker-summary-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    min-height: 115px;
+    padding: 22px;
+
+    background: rgba(58, 15, 20, 0.82);
+border: 1px solid rgba(242, 229, 198, 0.35);
+
+box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.tracker-summary-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+}
+
+.tracker-summary-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(242,229,198,0.40);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.16),
+        0 12px 30px rgba(0,0,0,0.22);
+}
+
+.summary-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 14px;
+    background: rgba(242,229,198,0.10);
+    border: 1px solid rgba(242,229,198,0.16);
+
+    color: var(--tracker-cream);
+    font-size: 19px;
+}
+
+.tracker-summary-card p {
+    display: block;
+    color: var(--tracker-muted);
+    font-size: 12px;
+    margin: 0 0 7px;
+}
+
+.tracker-summary-card h2 {
+    color: var(--tracker-cream);
+    font-size: 27px;
+    margin: 0;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.tracker-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.tracker-section-header h2 {
+    color: var(--tracker-cream);
+    font-size: 21px;
+    margin: 0 0 7px;
+}
+
+.tracker-section-header p {
+    color: var(--tracker-muted);
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ADD APPLICATION BUTTON
+========================================= */
+
+.add-application-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 19px;
+
+    color: var(--tracker-dark);
+    background: var(--tracker-cream);
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.add-application-btn:hover {
+    background: #fff2d5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.20);
+}
+
+
+/* =========================================
+   APPLICATION TOOLBAR
+========================================= */
+
+.tracker-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.tracker-search {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 12px 16px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--tracker-border);
+    border-radius: 11px;
+
+    color: var(--tracker-muted);
+}
+
+.tracker-search input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--tracker-cream);
+    font-size: 12px;
+}
+
+.tracker-search input::placeholder {
+    color: rgba(242,229,198,0.45);
+}
+
+#applicationStatusFilter {
+    padding: 12px 15px;
+
+    background: rgba(96,28,36,0.55);
+    border: 1px solid var(--tracker-border);
+    border-radius: 10px;
+
+    color: var(--tracker-cream);
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+#applicationStatusFilter option {
+    background: var(--tracker-dark);
+    color: var(--tracker-cream);
+}
+
+
+/* =========================================
+   APPLICATION LIST
+========================================= */
+
+.tracker-application-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 38px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.tracker-empty-state {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 240px;
+    padding: 35px;
+
+    text-align: center;
+
+    background: var(--tracker-glass);
+    border: 1px solid var(--tracker-border);
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.tracker-empty-state > i {
+    color: rgba(242,229,198,0.55);
+    font-size: 38px;
+    margin-bottom: 17px;
+}
+
+.tracker-empty-state h3 {
+    color: var(--tracker-cream);
+    font-size: 17px;
+    margin: 0 0 9px;
+}
+
+.tracker-empty-state p {
+    color: var(--tracker-muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================================
+   APPLICATION DETAILS SECTION
+========================================= */
+
+.tracker-details-section {
+    margin-top: 10px;
+}
+
+.tracker-details-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 230px;
+    padding: 35px;
+
+    text-align: center;
+
+    background: rgba(58, 15, 20, 0.82);
+border: 1px solid rgba(242, 229, 198, 0.35);
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+
+box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12);
+
+.tracker-details-placeholder > i {
+    color: rgba(242,229,198,0.55);
+    font-size: 35px;
+    margin-bottom: 16px;
+}
+
+.tracker-details-placeholder h3 {
+    color: var(--tracker-cream);
+    font-size: 16px;
+    margin: 0 0 8px;
+}
+
+.tracker-details-placeholder p {
+    color: var(--tracker-muted);
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .tracker-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .tracker-heading h1 {
+        font-size: 25px;
+    }
+
+    .tracker-application-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tracker-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tracker-search {
+        max-width: none;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .tracker-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker-summary-card {
+        min-height: 95px;
+    }
+
+}
+
+/* =========================================
+   APPLICATION CARDS
+========================================= */
+
+.tracker-application-card {
+    position: relative;
+    padding: 22px;
+
+    background: rgba(58, 15, 20, 0.82);
+border: 1px solid rgba(242, 229, 198, 0.35);
+
+box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12);
+
+    transition: 0.3s ease;
+}
+
+.tracker-application-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(242,229,198,0.38);
+}
+
+.application-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.application-scholarship-logo,
+.selected-application-logo {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px;
+    border-radius: 13px;
+
+    background: rgba(255,255,255,0.92);
+}
+
+.application-scholarship-logo img,
+.selected-application-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.application-card-info {
+    min-width: 0;
+}
+
+.application-organization {
+    display: block;
+    color: var(--tracker-muted);
+    font-size: 11px;
+    margin-bottom: 7px;
+}
+
+.application-card-info h3 {
+    color: var(--tracker-cream);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.application-card-info p {
+    color: var(--tracker-muted);
+    font-size: 11px;
+    margin: 0;
+}
+
+.application-card-info p i {
+    margin-right: 6px;
+}
+
+
+/* =========================================
+   APPLICATION STATUS BADGES
+========================================= */
+
+.application-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.application-status.pending {
+    color: #F2D48B;
+    background: rgba(190,145,55,0.18);
+    border: 1px solid rgba(242,212,139,0.30);
+}
+
+.application-status.under-review {
+    color: #A9D8F0;
+    background: rgba(70,145,190,0.18);
+    border: 1px solid rgba(169,216,240,0.30);
+}
+
+.application-status.approved {
+    color: #A7E1B5;
+    background: rgba(65,155,90,0.18);
+    border: 1px solid rgba(167,225,181,0.30);
+}
+
+.application-status.rejected {
+    color: #F2A5A5;
+    background: rgba(190,65,65,0.18);
+    border: 1px solid rgba(242,165,165,0.30);
+}
+
+
+/* =========================================
+   APPLICATION CARD ACTIONS
+========================================= */
+
+.application-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 20px;
+    padding-top: 16px;
+
+    border-top: 1px solid rgba(242,229,198,0.13);
+}
+
+.view-application-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 0;
+
+    background: transparent;
+    border: none;
+
+    color: var(--tracker-cream);
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.view-application-btn:hover {
+    color: #fff;
+}
+
+.application-status-select,
+#detailsStatus {
+    padding: 9px 12px;
+
+    background: rgba(58,15,20,0.80);
+    border: 1px solid var(--tracker-border);
+    border-radius: 8px;
+
+    color: var(--tracker-cream);
+    font-size: 11px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.application-status-select option,
+#detailsStatus option {
+    background: var(--tracker-dark);
+    color: var(--tracker-cream);
+}
+
+
+/* =========================================
+   SELECTED APPLICATION DETAILS
+========================================= */
+
+.tracker-details-placeholder.has-application {
+    display: block;
+    text-align: left;
+}
+
+.selected-application-header {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--tracker-border);
+}
+
+.selected-application-header h3 {
+    color: var(--tracker-cream);
+    font-size: 19px;
+    margin: 0;
+}
+
+.selected-application-information {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    padding: 25px 0;
+}
+
+.selected-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.selected-info-item span {
+    color: var(--tracker-muted);
+    font-size: 11px;
+}
+
+.selected-info-item strong {
+    color: var(--tracker-cream);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.selected-application-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 18px;
+    border-top: 1px solid var(--tracker-border);
+}
+
+.selected-application-actions label {
+    color: var(--tracker-muted);
+    font-size: 11px;
+}
+
+.remove-application-btn {
+    margin-left: auto;
+    padding: 10px 13px;
+
+    background: rgba(190,65,65,0.12);
+    border: 1px solid rgba(242,165,165,0.25);
+    border-radius: 8px;
+
+    color: #F2A5A5;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   ADD APPLICATION MODAL
+========================================= */
+
+.tracker-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15,5,7,0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.tracker-modal.show {
+    display: flex;
+}
+
+.tracker-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 32px;
+
+    background: rgba(58,15,20,0.96);
+    border: 1px solid rgba(242,229,198,0.25);
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.40);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 34px;
+    height: 34px;
+
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--tracker-border);
+    border-radius: 50%;
+
+    color: var(--tracker-cream);
+    cursor: pointer;
+}
+
+.tracker-modal-content h2 {
+    color: var(--tracker-cream);
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.modal-description {
+    color: var(--tracker-muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+#applicationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+#applicationForm label {
+    color: var(--tracker-cream);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#applicationForm input,
+#applicationForm select {
+    width: 100%;
+    padding: 13px 14px;
+
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--tracker-border);
+    border-radius: 9px;
+
+    color: var(--tracker-cream);
+    font-size: 12px;
+    outline: none;
+}
+
+#applicationForm input:focus,
+#applicationForm select:focus {
+    border-color: rgba(242,229,198,0.65);
+}
+
+#applicationForm select option {
+    background: var(--tracker-dark);
+    color: var(--tracker-cream);
+}
+
+#applicationForm input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.modal-cancel-btn,
+.modal-save-btn {
+    padding: 12px 17px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-cancel-btn {
+    background: transparent;
+    border: 1px solid var(--tracker-border);
+    color: var(--tracker-cream);
+}
+
+.modal-save-btn {
+    background: var(--tracker-cream);
+    border: 1px solid var(--tracker-cream);
+    color: var(--tracker-dark);
+}
+
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+========================================= */
+
+@media (max-width: 600px) {
+
+    .selected-application-information {
+        grid-template-columns: 1fr;
+    }
+
+    .selected-application-actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .remove-application-btn {
+        margin-left: 0;
+    }
+
+    .tracker-modal-content {
+        padding: 25px 20px;
+    }
+
+}
+
+/* =========================================
+   TRACKER PAGE LAYOUT
+========================================= */
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(120, 38, 48, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #3A0F14,
+            #501720,
+            #3A0F14
+        );
+
+    background-attachment: fixed;
+    color: var(--tracker-cream);
+    font-family: Arial, sans-serif;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 245px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 35px 22px;
+
+    background: rgba(58, 15, 20, 0.72);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border-right: 1px solid var(--tracker-border);
+
+    z-index: 100;
+}
+
+.sidebar-logo {
+    padding: 10px 12px 35px;
+    border-bottom: 1px solid var(--tracker-border);
+}
+
+.sidebar-logo h2 {
+    color: var(--tracker-cream);
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.sidebar-logo p {
+    margin-top: 5px;
+    color: var(--tracker-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+
+    padding: 14px 15px;
+
+    color: var(--tracker-muted);
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--tracker-cream);
+    background: rgba(242, 229, 198, 0.10);
+    border-color: var(--tracker-border);
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    width: calc(100% - 245px);
+    min-height: 100vh;
+
+    margin-left: 245px;
+    padding: 50px 45px;
+}
+
+/* PAGE HEADING */
+
+.tracker-heading {
+    margin-bottom: 35px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 18px;
+    }
+
+    .sidebar-logo {
+        padding-bottom: 15px;
+    }
+
+    .sidebar-navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+}

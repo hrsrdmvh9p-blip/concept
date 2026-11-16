@@ -1,256 +1,1210 @@
-/* General website styling */
+
+/* =========================================
+   ISKOURCE HOMEPAGE
+   MAROON GLASSMORPHISM DESIGN
+========================================= */
 
 
-/* Main heading */
+/* COLOR VARIABLES */
 
-/* General website styling */
+:root {
+
+    --dark-red: #3A0F14;
+    --light-red: #601C24;
+    --cream-yellow: #F2E5C6;
+
+    --glass-bg: rgba(96, 28, 36, 0.48);
+    --glass-border: rgba(242, 229, 198, 0.30);
+
+    --text-muted: rgba(242, 229, 198, 0.72);
+
+    --transition: 0.3s ease;
+
+}
+
+
+/* GENERAL RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: #3A0F14;
+}
 
 body {
-    background-color: #161f38;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-/* Main heading */
-
-.gradient-text {
-    background: linear-gradient(
-        90deg,
-        #00eaff,
-        #8b5cf6,
-        #ff42d0
-    );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    color: transparent;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-@keyframes textGlow {
-
-    from {
-        text-shadow:
-            0 0 5px #00eaff,
-            0 0 10px #00eaff;
-    }
-
-    to {
-        text-shadow:
-            0 0 10px #00eaff,
-            0 0 20px #00eaff,
-            0 0 40px #008cff,
-            0 0 60px #008cff;
-    }
-
-}
-
-.neon-text {
-    animation: textGlow 2s infinite alternate;
+    min-height: 100vh;
+    background: transparent;
 }
 
 
-.neon-subtitle{
-    color: #65dafa;
+/* MAIN HOMEPAGE */
+
+.homepage {
+    min-height: 100vh;
+    background-image: url("images/background.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+/* =========================================
+   HEADER
+========================================= */
+
+.brand-header {
+
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 12px 6%;
+
+    background: rgba(96, 28, 36, 0.65);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--glass-border);
+
 }
 
-.neon-button {
-    background: #0b1020;
-    color: #00eaff;
+.brand-lockup {
 
-    border: 2px solid #00eaff;
-    border-radius: 10px;
+    display: flex;
 
-    padding: 15px 35px;
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: var(--cream-yellow);
+
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-mark img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.brand-copy strong {
+
     font-size: 16px;
-    font-weight: bold;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+.brand-copy small {
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+.welcome {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    min-height: 390px;
+
+    margin: auto;
+
+    padding: 75px 20px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+/* HERO BRAND */
+
+.hero-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+}
+
+.hero-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-mark img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    transform: rotate(-8deg);
+    filter: drop-shadow(5px 7px 5px rgba(0,0,0,0.25));
+}
+
+.hero-brand-copy {
+
+    text-align: left;
+
+}
+
+.hero-brand h1 {
+
+    font-size: clamp(42px, 8vw, 78px);
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+    color: var(--cream-yellow);
+
+}
+
+.tagline {
+
+    font-size: clamp(15px, 2.7vw, 25px);
+
+    font-weight: 700;
+
+    font-style: italic;
+
+    color: var(--cream-yellow);
+
+}
+
+
+/* DESCRIPTION */
+
+.welcome-description {
+
+    max-width: 590px;
+
+    margin: 27px auto;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+/* JOURNEY BUTTON */
+
+.journey-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background: var(--cream-yellow);
+
+    color: var(--dark-red);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: var(--transition);
+
+}
+
+.journey-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+    background: #fff1d2;
+
+}
+
+
+/* =========================================
+   GLASSMORPHISM SEARCH BAR
+========================================= */
+
+.search-section {
+
+    width: 88%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.search-container {
+
+    width: 100%;
+
+    min-height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 6px 10px 6px 22px;
+
+    border-radius: 50px;
+
+    background: rgba(96, 28, 36, 0.45);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid var(--glass-border);
+
+    box-shadow:
+
+        0 8px 32px rgba(0,0,0,0.18),
+
+        inset 0 1px 0 rgba(242,229,198,0.08);
+
+    transition: var(--transition);
+
+}
+
+.search-container:focus-within {
+
+    border-color: var(--cream-yellow);
+
+    box-shadow:
+
+        0 0 20px rgba(242,229,198,0.10),
+
+        0 8px 32px rgba(0,0,0,0.2);
+
+}
+
+
+.search-icon {
+
+    color: var(--text-muted);
+
+}
+
+
+.search-container input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 45px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--cream-yellow);
+
+    font-size: 13px;
+
+}
+
+.search-container input::placeholder {
+
+    color: rgba(242,229,198,0.55);
+
+}
+
+
+.search-container button {
+
+    width: 43px;
+
+    height: 43px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--cream-yellow);
+
+    color: var(--dark-red);
 
     cursor: pointer;
 
-    box-shadow: 0 0 10px #00eaff,
-                0 0 20px #00eaff;
-
-    animation: glow 2s infinite alternate;
-}
-@keyframes glow {
-
-    from {
-        box-shadow: 0 0 5px #00eaff,
-                    0 0 10px #00eaff;
-    }
-
-    to {
-        box-shadow: 0 0 15px #00eaff,
-                    0 0 35px #00eaff,
-                    0 0 50px #00eaff;
-    }
+    transition: var(--transition);
 
 }
 
-@keyframes float {
-    from {
-        transform: translateY(0);
-    }
+.search-container button:hover {
 
-    to {
-        transform: translateY(-8px);
-    }
+    transform: scale(1.08);
+
+    background: white;
+
 }
 
-.neon-button {
-    animation: float 1.5s infinite alternate;
-}
-@keyframes colorGlow {
-    0% {
-        box-shadow: 0 0 10px cyan;
-    }
 
-    50% {
-        box-shadow: 0 0 30px purple;
-    }
+/* =========================================
+   SEARCH RESULTS
+========================================= */
 
-    100% {
-        box-shadow: 0 0 10px cyan;
-    }
+.scholarship-list {
+
+    display: none;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
 }
 
-.neon-button {
-    animation: colorGlow 3s infinite;
+.scholarship-card {
+
+    padding: 22px;
+
+    text-decoration: none;
+
+    color: var(--cream-yellow);
+
+    border-radius: 16px;
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid var(--glass-border);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+    transition: var(--transition);
+
 }
+
+.scholarship-card:hover {
+
+    transform: translateY(-5px);
+
+    background: rgba(120, 38, 48, 0.65);
+
+    border-color: var(--cream-yellow);
+
+}
+
+.result-type {
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: var(--text-muted);
+
+}
+
+.scholarship-card h3 {
+
+    margin: 12px 0 8px;
+
+    font-size: 15px;
+
+}
+
+.scholarship-card p {
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: var(--text-muted);
+
+}
+
+.result-link {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================
+   QUICK ACCESS SECTION
+========================================= */
+
+.quick-access {
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 75px auto;
+
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+.eyebrow {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: var(--text-muted);
+
+    margin-bottom: 10px;
+
+}
+
+.section-heading h2 {
+
+    font-size: clamp(22px, 3vw, 30px);
+
+    font-weight: 800;
+
+    color: var(--cream-yellow);
+
+}
+
+.section-heading p:last-child {
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+
+}
+
+
+/* FEATURE CARD CONTAINER */
 
 .card-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    padding: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
 }
 
-.card {
-    width: 250px;
+
+/* =========================================
+   GLASSMORPHISM FEATURE CARDS
+========================================= */
+
+.feature-card {
+
+    min-height: 230px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
     padding: 25px;
 
-    background: rgba(255, 255, 255, 0.05);
-
-    border: 1px solid rgba(0, 234, 255, 0.4);
-    border-radius: 15px;
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
-
-    color: white;
-    text-align: center;
-
-    transition: 0.3s ease;
-}
-.gradient-text {
-    background: linear-gradient(
-        90deg,
-        #00eaff
-        #8b5cf6
-        #ff42d0
-    )
-    color: transparent;
-    font-size: 40px;
-    text-align: center;
-    font-weight: bold;
-}
-.card {
-    display: block;
     text-decoration: none;
-    color: white;
+
+    color: var(--cream-yellow);
+
+    border-radius: 18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(120, 38, 48, 0.40),
+            rgba(58, 15, 20, 0.50)
+        );
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid var(--glass-border);
+
+    box-shadow:
+
+        0 8px 32px rgba(0,0,0,0.20),
+
+        inset 0 1px 0 rgba(242,229,198,0.10);
+
+    transition: var(--transition);
+
 }
-.card {
-    animation: neonGlow 3s ease-in-out infinite alternate;
+
+
+/* CARD HOVER */
+
+.feature-card:hover {
+
+    transform: translateY(-7px);
+
+    background: rgba(120, 38, 48, 0.60);
+
+    border-color: rgba(242,229,198,0.75);
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,0.25),
+
+        0 0 15px rgba(242,229,198,0.08);
+
 }
 
-@keyframes neonGlow {
-    0% {
-        box-shadow: 0 0 10px #00ffff,
-                    0 0 20px rgba(0, 255, 255, 0.4);
-        border-color: #00ffff;
-    }
 
-    100% {
-        box-shadow: 0 0 10px #a855f7,
-                    0 0 30px rgba(168, 85, 247, 0.6);
-        border-color: #a855f7;
-    }
+/* CARD ICON */
+
+.feature-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 13px;
+
+    background: var(--cream-yellow);
+
+    color: var(--dark-red);
+
+    font-size: 22px;
+
 }
-.glow-button:hover {
-    color: #080D1B;
-    background: #00eaff;
 
-    box-shadow: 0 0 20px #00eaff,
-                0 0 40px #00eaff,
-                0 0 70px #00eaff;
 
-    transform: scale(1.05);
-}
-.glow-button {
-    background: #0b1020;
-    color: #00eaff;
+/* CARD TEXT */
 
-    border: 2px solid #00eaff;
-    border-radius: 10px;
+.feature-card h3 {
 
-    padding: 15px 35px;
     font-size: 16px;
-    font-weight: bold;
 
-    cursor: pointer;
+    font-weight: 800;
 
-    box-shadow: 0 0 10px #00eaff,
-                0 0 20px #00eaff;
+    margin-bottom: 10px;
 
-    animation: glow 2s infinite alternate;
+    color: var(--cream-yellow);
+
 }
-@keyframes glow {
 
+.feature-card p {
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    color: var(--text-muted);
+
+    margin-bottom: 20px;
+
+}
+
+
+/* CARD ACTION */
+
+.card-action {
+
+    margin-top: auto;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    color: var(--cream-yellow);
+
+}
+
+.card-action i {
+
+    margin-left: 5px;
+
+    transition: var(--transition);
+
+}
+
+.feature-card:hover .card-action i {
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.homepage-footer {
+
+    padding: 25px 15px;
+
+    text-align: center;
+
+    border-top: 1px solid var(--glass-border);
+
+    background: rgba(58,15,20,0.30);
+
+}
+
+.footer-brand {
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    color: var(--cream-yellow);
+
+    text-decoration: none;
+
+}
+
+.homepage-footer p {
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 760px) {
+
+    .welcome {
+
+        min-height: 340px;
+
+    }
+
+    .card-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .scholarship-list {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .feature-card {
+
+        min-height: 190px;
+
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .brand-header {
+
+        padding: 12px 18px;
+
+    }
+
+    .welcome {
+
+        width: 94%;
+
+        padding-top: 55px;
+
+    }
+
+    .hero-brand {
+
+        gap: 10px;
+
+    }
+
+    .hero-mark {
+
+        font-size: 55px;
+
+    }
+
+    .hero-brand h1 {
+
+        font-size: 42px;
+
+        letter-spacing: -2px;
+
+    }
+
+    .welcome-description {
+
+        font-size: 11px;
+
+    }
+
+    .search-section {
+
+        width: 92%;
+
+    }
+
+    .search-container {
+
+        padding-left: 15px;
+
+    }
+
+    .search-container input {
+
+        font-size: 11px;
+
+    }
+
+}
+
+
+/* =========================================
+   ISKOURCE — PREMIUM GLASS BACKGROUND
+========================================= */
+
+.homepage {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(150, 55, 70, 0.38),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 85% 35%,
+            rgba(110, 35, 48, 0.42),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 50% 85%,
+            rgba(160, 100, 75, 0.16),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #3A0F14,
+            #501720,
+            #3A0F14
+        );
+}
+
+/* SOFT AMBIENT LIGHT */
+.homepage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 45%,
+            rgba(242, 229, 198, 0.07),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(180, 70, 85, 0.12),
+            transparent 30%
+        );
+
+    filter: blur(35px);
+}
+
+/* =========================================
+   PREMIUM GLASS FEATURE CARDS
+========================================= */
+
+
+/* =========================================
+   STRONGER GLASS REFLECTION
+========================================= */
+
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* BRIGHT GLASS REFLECTION */
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255, 255, 255, 0.22) 0%,
+            rgba(242, 229, 198, 0.15) 12%,
+            transparent 35%,
+            transparent 70%,
+            rgba(255, 255, 255, 0.08) 100%
+        );
+
+    opacity: 1;
+}
+
+/* KEEP CARD CONTENT ABOVE REFLECTION */
+.feature-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* SOFT INNER GLOW */
+.feature-card::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -80px;
+    z-index: -1;
+    pointer-events: none;
+
+    background: rgba(242, 229, 198, 0.12);
+    filter: blur(55px);
+    border-radius: 50%;
+}
+
+/* HOVER */
+.feature-card:hover {
+    transform: translateY(-9px);
+
+    background: linear-gradient(
+        135deg,
+        rgba(160, 65, 78, 0.40),
+        rgba(96, 28, 36, 0.32)
+    );
+
+    border-color: rgba(242, 229, 198, 0.65);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.32),
+        0 0 25px rgba(242, 229, 198, 0.10),
+        inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================
+   PREMIUM GLASS SEARCH
+========================================= */
+
+.search-container {
+    background: rgba(96, 28, 36, 0.22);
+
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+    border: 1px solid rgba(242, 229, 198, 0.35);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.18),
+        inset 0 -1px 1px rgba(242, 229, 198, 0.08);
+
+    transition: all 0.35s ease;
+}
+
+.search-container:focus-within {
+    border-color: rgba(242, 229, 198, 0.75);
+
+    box-shadow:
+        0 0 25px rgba(242, 229, 198, 0.13),
+        0 12px 35px rgba(0, 0, 0, 0.28),
+        inset 0 1px 2px rgba(255, 255, 255, 0.20);
+}
+
+/* =========================================
+   PREMIUM SCHOLARSHIP GLASS
+========================================= */
+
+.scholarship-card {
+    background: rgba(96, 28, 36, 0.22);
+
+    backdrop-filter: blur(25px) saturate(170%);
+    -webkit-backdrop-filter: blur(25px) saturate(170%);
+
+    border: 1px solid rgba(242, 229, 198, 0.30);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.20),
+        inset 0 1px 1px rgba(255, 255, 255, 0.16);
+
+    transition: all 0.35s ease;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-6px);
+
+    background: rgba(120, 38, 48, 0.40);
+
+    border-color: rgba(242, 229, 198, 0.65);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28),
+        0 0 20px rgba(242, 229, 198, 0.10);
+}
+
+
+/* TOP GLASS HIGHLIGHT */
+
+.feature-card {
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.25),
+        inset 0 2px 3px rgba(255, 255, 255, 0.20),
+        inset 0 -1px 2px rgba(242, 229, 198, 0.12);
+}
+
+
+
+
+
+/* ==========================================
+   ISKOURCE - CINEMATIC PAGE MORPH
+========================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+/* Smooth full-page transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 1.4s;
+    animation-timing-function: cubic-bezier(.76, 0, .24, 1);
+}
+
+
+/* Page movement */
+@keyframes morphOld {
     from {
-        box-shadow: 0 0 5px #00eaff,
-                    0 0 10px #00eaff;
+        opacity: 1;
+        filter: blur(0);
     }
 
     to {
-        box-shadow: 0 0 15px #00eaff,
-                    0 0 35px #00eaff,
-                    0 0 50px #00eaff;
+        opacity: 0.15;
+        filter: blur(3px);
     }
-
 }
 
-@keyframes float {
+@keyframes morphNew {
     from {
-        transform: translateY(0);
+        opacity: 0.15;
+        filter: blur(3px);
     }
 
     to {
-        transform: translateY(-8px);
+        opacity: 1;
+        filter: blur(0);
     }
 }
 
-.glow-button {
-    animation: float 1.5s infinite alternate;
-}
-@keyframes colorGlow {
-    0% {
-        box-shadow: 0 0 10px cyan;
-    }
-
-    50% {
-        box-shadow: 0 0 30px purple;
-    }
-
-    100% {
-        box-shadow: 0 0 10px cyan;
-    }
+/* Premium burgundy glass background */
+::view-transition {
+    background: #3A0F14;
 }
 
-.glow-button {
-    animation: colorGlow 3s infinite;
+/* Homepage cards */
+.feature-card,
+.scholarship-card {
+    view-transition-name: none;
+}
+
+
+/* ==========================================
+   HOMEPAGE ZOOM + SELECTED CARD EXPANSION
+========================================== */
+
+.homepage {
+    transform-origin: var(--morph-x, 50%) var(--morph-y, 50%);
+
+    transition:
+        transform 1.6s cubic-bezier(.65, 0, .35, 1),
+        filter 1.6s ease;
+
+    will-change: transform;
+}
+
+/* Entire homepage moves toward selected card */
+body.zoom-to-card .homepage {
+    transform: scale(1.25);
+}
+
+
+/* SELECTED CARD: ALWAYS SHARP */
+
+.feature-card.morph-selected,
+.scholarship-card.morph-selected {
+    position: relative;
+    z-index: 9999;
+
+    filter: none !important;
+    opacity: 1 !important;
+
+    transform:
+        translate(var(--move-x), var(--move-y))
+        scale(1.22);
+
+    transform-origin: center center;
+
+    transition:
+        transform 1.6s cubic-bezier(.65, 0, .35, 1),
+        box-shadow 1.6s ease;
+
+    box-shadow:
+        0 0 35px rgba(242, 229, 198, .3),
+        0 0 80px rgba(96, 28, 36, .7);
+}
+
+/* Blur only the elements behind the selected card */
+
+.morph-background {
+    filter: blur(5px) brightness(.55);
+    transition: filter 1.6s ease;
+}
+/* ==========================================
+   DIRECTORY CROSS-PAGE MORPH
+========================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+/* Shared element */
+.directory-morph {
+    view-transition-name: directory-morph;
+}
+
+/* Smooth morph movement */
+::view-transition-group(directory-morph) {
+
+    animation-duration: 1.5s;
+
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+/* Keep the transition visually clean */
+::view-transition-image-pair(directory-morph) {
+    isolation: isolate;
+}
+/* ==========================================
+   ISKOURCE CROSS-PAGE SHARED ELEMENT MORPH
+========================================== */
+
+@view-transition {
+    navigation: auto;
+}
+
+.directory-morph {
+    view-transition-name: directory-morph;
+}
+
+::view-transition-group(directory-morph) {
+    animation-duration: 1.5s;
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-image-pair(directory-morph) {
+    isolation: isolate;
 }
