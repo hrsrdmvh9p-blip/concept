@@ -346,6 +346,7 @@ box-shadow:
     margin-top: 10px;
 }
 
+
 .tracker-details-placeholder {
     display: flex;
     flex-direction: column;
@@ -358,14 +359,16 @@ box-shadow:
     text-align: center;
 
     background: rgba(58, 15, 20, 0.82);
-border: 1px solid rgba(242, 229, 198, 0.35);
+    border: 1px solid rgba(242, 229, 198, 0.35);
+    border-radius: 16px;
 
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.25),
-    inset 0 1px 2px rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.12);
+}
 
 .tracker-details-placeholder > i {
     color: rgba(242,229,198,0.55);
@@ -385,6 +388,7 @@ box-shadow:
     margin: 0;
     line-height: 1.7;
 }
+
 
 
 /* =========================================
