@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -231,7 +232,7 @@ body {
             height: 55px;
             object-fit: contain;
         }
-
+        
 
         /* =====================================
            MAIN CONTENT
@@ -749,33 +750,33 @@ body {
                 height: 38px;
             }
 
-            .sidebar {
+.sidebar {
                 width: 75px;
                 padding: 30px 8px;
-            }
+}
 
             .sidebar-link {
                 justify-content: center;
                 padding: 12px 5px;
-            }
+}
 
             .sidebar-link span {
                 display: none;
-            }
+}
 
-            .sidebar-link img {
-                width: 32px;
-                height: 32px;
-            }
+.sidebar-link img {
+    width: 32px;
+    height: 32px;
+}
 
-            .sidebar-brand {
+.sidebar-brand {
                 font-size: 9px;
-            }
+}
 
-            .sidebar-brand img {
+.sidebar-brand img {
                 width: 40px;
                 height: 40px;
-            }
+}
 
             .main-content {
                 margin-left: 75px;
@@ -1574,8 +1575,8 @@ body {
                     <!-- CARD 1 -->
 
                     <article
-                        class="scholarship-card" data-scholarship="dost"
-                        data-scholarship="dost"
+    class="scholarship-card"
+    data-scholarship="dost"
                         data-category="Government"
                         data-status="Open"
                         data-eligibility="Incoming Freshmen"
@@ -1649,7 +1650,7 @@ body {
                             </span>
 
                             <span class="scholarship-status">
-                                <i class="fa-solid fa-circle-check"></i> Closed
+                                <i class="fa-solid fa-circle-check"></i> Open
                             </span>
 
                             <h2>Ayala U-Go Scholarship Grant</h2>
@@ -2529,6 +2530,9 @@ body {
 
     </main>
 
+    <script src="scholarship-data.js"></script>
+<script src="directory.js"></script>
+
 
 
     <!-- =====================================
@@ -2924,7 +2928,7 @@ const backToDirectory = document.getElementById("backToDirectory");
     Use the same key as the card's data-scholarship attribute.
 */
 
-const scholarshipData = {
+window.scholarshipData = {
 
     dost: {
     name: "DOST-SEI Undergraduate Scholarship",

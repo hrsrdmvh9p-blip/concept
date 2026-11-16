@@ -7,37 +7,77 @@
 
     <title>ISKOURCE | Scholarship Tracker</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+
+     <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet" href="tracker.css">
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            <h2>ISKOURCE</h2>
-            <p>Iskolar Source</p>
+
+<!-- TOP HEADER -->
+<header class="top-header">
+
+    <a href="index.html" class="top-brand">
+        <img src="images/my-logo.png" alt="ISKOURCE Logo">
+
+        <div>
+            <strong>ISKOURCE</strong>
+            <small>ISKOLAR SOURCE</small>
         </div>
+    </a>
 
-        <nav class="sidebar-navigation">
+    <div class="top-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-            <a href="index.html" class="nav-link">
-                Home
-            </a>
+        <input
+            type="text"
+            id="topSearch"
+            placeholder="Search for Scholarships"
+        >
+    </div>
 
-            <a href="scholarships.html" class="nav-link">
-                Scholarship Directory
-            </a>
+</header>
 
-            <a href="tracker.html" class="nav-link active">
-                Scholarship Tracker
-            </a>
 
-        </nav>
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-    </aside>
+    <nav class="sidebar-links">
+
+        <a href="index.html" class="sidebar-link">
+            <img src="images/my-logo.png" alt="">
+            <span>HOME</span>
+        </a>
+
+        <a href="scholarships.html" class="sidebar-link">
+            <img src="images/my-logo.png" alt="">
+            <span>DIRECTORY</span>
+        </a>
+
+        <a href="tracker.html" class="sidebar-link active">
+            <img src="images/my-logo.png" alt="">
+            <span>TRACKER</span>
+        </a>
+
+        <a href="eligibility.html" class="sidebar-link">
+            <img src="images/my-logo.png" alt="">
+            <span>ELIGIBILITY CHECKER</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-brand">
+        <img src="images/my-logo.png" alt="ISKOURCE">
+        <span>ISKOURCE</span>
+    </div>
+
+</aside>
 
 
     <!-- MAIN CONTENT -->
@@ -58,154 +98,143 @@
         </header>
 
 
-        <!-- SUMMARY CARDS -->
-        <section class="tracker-summary">
+        
+<!-- MAIN TRACKER GLASS CONTAINER -->
+<div class="tracker-container">
 
-            <div class="tracker-summary-card">
-                <div class="summary-icon">
-                    <i class="fa-solid fa-folder"></i>
-                </div>
+    <!-- SUMMARY CARDS -->
+    <section class="tracker-summary">
 
-                <div>
-                    <p>Total Applications</p>
-                    <h2 id="totalApplications">0</h2>
-                </div>
+        <div class="tracker-summary-card">
+            <div class="summary-icon">
+                <i class="fa-solid fa-folder"></i>
             </div>
-
-
-            <div class="tracker-summary-card">
-                <div class="summary-icon">
-                    <i class="fa-solid fa-clock"></i>
-                </div>
-
-                <div>
-                    <p>Pending</p>
-                    <h2 id="pendingApplications">0</h2>
-                </div>
+            <div>
+                <p>Total Applications</p>
+                <h2 id="totalApplications">0</h2>
             </div>
+        </div>
 
-
-            <div class="tracker-summary-card">
-                <div class="summary-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-
-                <div>
-                    <p>Under Review</p>
-                    <h2 id="reviewApplications">0</h2>
-                </div>
+        <div class="tracker-summary-card">
+            <div class="summary-icon">
+                <i class="fa-solid fa-clock"></i>
             </div>
-
-
-            <div class="tracker-summary-card">
-                <div class="summary-icon">
-                    <i class="fa-solid fa-circle-check"></i>
-                </div>
-
-                <div>
-                    <p>Approved</p>
-                    <h2 id="approvedApplications">0</h2>
-                </div>
+            <div>
+                <p>Pending</p>
+                <h2 id="pendingApplications">0</h2>
             </div>
+        </div>
 
-        </section>
-
-
-        <!-- APPLICATION SECTION -->
-        <section class="applications-section">
-
-            <div class="tracker-section-header">
-
-                <div>
-                    <h2>My Applications</h2>
-
-                    <p>
-                        Keep track of your submitted scholarship applications.
-                    </p>
-                </div>
-
-                <button
-                    class="add-application-btn"
-                    id="addApplicationBtn"
-                    type="button"
-                >
-                    <i class="fa-solid fa-plus"></i>
-                    Add Application
-                </button>
-
+        <div class="tracker-summary-card">
+            <div class="summary-icon">
+                <i class="fa-solid fa-eye"></i>
             </div>
-
-
-            <!-- SEARCH AND FILTER -->
-            <div class="tracker-toolbar">
-
-                <div class="tracker-search">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                    <input
-                        type="search"
-                        id="applicationSearch"
-                        placeholder="Search scholarship or organization..."
-                    >
-
-                </div>
-
-
-                <select id="applicationStatusFilter">
-
-                    <option value="All">All Status</option>
-                    <option value="Pending">Pending</option>
-                    <option value="Under Review">Under Review</option>
-                    <option value="Approved">Approved</option>
-                    <option value="Rejected">Rejected</option>
-
-                </select>
-
+            <div>
+                <p>Under Review</p>
+                <h2 id="reviewApplications">0</h2>
             </div>
+        </div>
 
-
-            <!-- APPLICATION CARDS -->
-            <div
-                class="tracker-application-list"
-                id="applicationList"
-            >
-                <!-- JavaScript generates application cards here -->
+        <div class="tracker-summary-card">
+            <div class="summary-icon">
+                <i class="fa-solid fa-circle-check"></i>
             </div>
-
-        </section>
-
-
-        <!-- APPLICATION DETAILS -->
-        <section class="tracker-details-section">
-
-            <div class="tracker-section-header">
-                <div>
-                    <h2>Application Details</h2>
-
-                    <p>
-                        View information and manage your selected application.
-                    </p>
-                </div>
+            <div>
+                <p>Approved</p>
+                <h2 id="approvedApplications">0</h2>
             </div>
+        </div>
+
+    </section>
 
 
-            <div
-                class="tracker-details-placeholder"
-                id="applicationDetails"
-            >
+    <!-- APPLICATION SECTION -->
+    <section class="applications-section">
 
-                <i class="fa-solid fa-file-circle-question"></i>
-
-                <h3>No Application Selected</h3>
-
+        <div class="tracker-section-header">
+            <div>
+                <h2>My Applications</h2>
                 <p>
-                    Select an application from your list to view its details.
+                    Keep track of your submitted scholarship applications.
                 </p>
-
             </div>
 
-        </section>
+            <button
+                class="add-application-btn"
+                id="addApplicationBtn"
+                type="button"
+            >
+                <i class="fa-solid fa-plus"></i>
+                Add Application
+            </button>
+        </div>
+
+
+        <!-- SEARCH AND FILTER -->
+        <div class="tracker-toolbar">
+
+            <div class="tracker-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="applicationSearch"
+                    placeholder="Search scholarship or organization..."
+                >
+            </div>
+
+            <select id="applicationStatusFilter">
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Under Review">Under Review</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+        </div>
+
+
+        <!-- APPLICATION CARDS -->
+        <div
+            class="tracker-application-list"
+            id="applicationList"
+        >
+            <!-- JavaScript generates application cards here -->
+        </div>
+
+    </section>
+
+
+    <!-- APPLICATION DETAILS -->
+    <section class="tracker-details-section">
+
+        <div class="tracker-section-header">
+            <div>
+                <h2>Application Details</h2>
+                <p>
+                    View information and manage your selected application.
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="tracker-details-placeholder"
+            id="applicationDetails"
+        >
+            <i class="fa-solid fa-file-circle-question"></i>
+
+            <h3>No Application Selected</h3>
+
+            <p>
+                Select an application from your list to view its details.
+            </p>
+        </div>
+
+    </section>
+
+</div>
+<!-- END MAIN TRACKER GLASS CONTAINER -->
+
 
     </main>
 
