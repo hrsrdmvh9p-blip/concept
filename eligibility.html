@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ISKOURCE | Eligibility Checker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="eligibility.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- TOP HEADER -->
+    <header class="top-header">
+
+        <a href="index.html" class="top-brand">
+            <img src="images/my-logo.png" alt="ISKOURCE Logo">
+
+            <div>
+                <strong>ISKOURCE</strong>
+                <small>ISKOLAR SOURCE</small>
+            </div>
+        </a>
+
+        <div class="top-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="topSearch"
+                placeholder="Search for Scholarships"
+            >
+        </div>
+
+    </header>
+
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <nav class="sidebar-links">
+
+            <a href="index.html" class="sidebar-link">
+                <img src="images/my-logo.png" alt="">
+                <span>HOME</span>
+            </a>
+
+            <a href="scholarships.html" class="sidebar-link">
+                <img src="images/my-logo.png" alt="">
+                <span>DIRECTORY</span>
+            </a>
+
+            <a href="tracker.html" class="sidebar-link">
+                <img src="images/my-logo.png" alt="">
+                <span>TRACKER</span>
+            </a>
+
+            <a href="eligibility.html" class="sidebar-link active">
+                <img src="images/my-logo.png" alt="">
+                <span>ELIGIBILITY CHECKER</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-brand">
+            <img src="images/my-logo.png" alt="ISKOURCE">
+            <span>ISKOURCE</span>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content morph-target eligibility-morph">
+
+        <!-- PAGE HEADING -->
+       <header class="eligibility-heading">
+
+            <div>
+                <span class="eligibility-eyebrow">
+                    STUDENT DASHBOARD
+                </span>
+
+                <h1>Scholarship Eligibility Checker</h1>
+
+                <p>
+                    Discover scholarship opportunities that match
+                    your academic qualifications and personal background.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- ELIGIBILITY MAIN CONTAINER -->
+        <div class="eligibility-container">
+
+
+            <!-- INTRODUCTION -->
+            <section class="eligibility-intro">
+
+                <div class="eligibility-intro-icon">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+
+                <div>
+                    <h2>Check Your Scholarship Eligibility</h2>
+
+                    <p>
+                        Provide your student information below so ISKOURCE
+                        can help identify scholarships that may match
+                        your qualifications.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- ELIGIBILITY FORM -->
+            <form id="eligibilityForm">
+
+
+                <!-- STUDENT INFORMATION -->
+                <section class="eligibility-form-section">
+
+                    <div class="eligibility-section-heading">
+
+                        <div class="eligibility-section-icon">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+
+                        <div>
+                            <h2>Student Information</h2>
+                            <p>Tell us about your current education.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="eligibility-form-grid">
+
+                        <div class="eligibility-field full-width">
+                            <label for="studentName">Full Name</label>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="studentSchool">
+                                School / University
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentSchool"
+                                placeholder="Enter your school"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="studentLocation">
+                                School Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentLocation"
+                                placeholder="City or Province"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="studentCourse">
+                                Course / Program
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentCourse"
+                                placeholder="Enter your course"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="studentYear">
+                                Year Level
+                            </label>
+
+                            <select id="studentYear" required>
+                                <option value="">Select year level</option>
+                                <option value="Grade 11">Grade 11</option>
+                                <option value="Grade 12">Grade 12</option>
+                                <option value="1st Year">1st Year College</option>
+                                <option value="2nd Year">2nd Year College</option>
+                                <option value="3rd Year">3rd Year College</option>
+                                <option value="4th Year">4th Year College</option>
+                                <option value="5th Year">5th Year College</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ACADEMIC INFORMATION -->
+                <section class="eligibility-form-section">
+
+                    <div class="eligibility-section-heading">
+
+                        <div class="eligibility-section-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+
+                        <div>
+                            <h2>Academic Information</h2>
+                            <p>Provide your latest academic performance.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="eligibility-form-grid">
+
+                       
+<div class="eligibility-field">
+    <label for="studentGWA">
+        Latest General Average / GWA
+    </label>
+
+    <input
+        type="number"
+        id="studentGWA"
+        placeholder="e.g. 92.5 or 1.75"
+        min="0"
+        max="100"
+        step="any"
+        required
+    >
+
+    <small>
+        Incoming college students may enter their latest Senior High
+        School general average. Current college students may enter
+        their latest GWA.
+    </small>
+</div>
+
+
+                        <div class="eligibility-field">
+                            <label for="academicStatus">
+                                Academic Status
+                            </label>
+
+                            <select id="academicStatus" required>
+                                <option value="">Select status</option>
+                                <option value="Regular">Regular Student</option>
+                                <option value="Irregular">Irregular Student</option>
+                                <option value="Transferee">Transferee</option>
+                                <option value="Returning">Returning Student</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FINANCIAL INFORMATION -->
+                <section class="eligibility-form-section">
+
+                    <div class="eligibility-section-heading">
+
+                        <div class="eligibility-section-icon">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+
+                        <div>
+                            <h2>Financial Information</h2>
+                            <p>Help us identify scholarships with financial qualifications.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="eligibility-form-grid">
+
+                        <div class="eligibility-field">
+                            <label for="familyIncome">
+                                Annual Family Income
+                            </label>
+
+                            <select id="familyIncome" required>
+                                <option value="">Select income range</option>
+                                <option value="below-100k">Below ₱100,000</option>
+                                <option value="100k-200k">₱100,000 – ₱200,000</option>
+                                <option value="200k-300k">₱200,001 – ₱300,000</option>
+                                <option value="300k-400k">₱300,001 – ₱400,000</option>
+                                <option value="400k-500k">₱400,001 – ₱500,000</option>
+                                <option value="above-500k">Above ₱500,000</option>
+                            </select>
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="financialAssistance">
+                                Currently Receiving Financial Assistance?
+                            </label>
+
+                            <select id="financialAssistance" required>
+                                <option value="">Select an answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ADDITIONAL INFORMATION -->
+                <section class="eligibility-form-section">
+
+                    <div class="eligibility-section-heading">
+
+                        <div class="eligibility-section-icon">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <div>
+                            <h2>Additional Qualifications</h2>
+                            <p>Provide other relevant information.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="eligibility-form-grid">
+
+                        <div class="eligibility-field">
+                            <label for="studentCitizenship">
+                                Citizenship
+                            </label>
+
+                            <select id="studentCitizenship" required>
+                                <option value="">Select citizenship</option>
+                                <option value="Filipino">Filipino</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+
+                        <div class="eligibility-field">
+                            <label for="studentDisability">
+                                Person with Disability (PWD)?
+                            </label>
+
+                            <select id="studentDisability" required>
+                                <option value="">Select an answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FORM ACTIONS -->
+                <div class="eligibility-form-actions">
+
+                    <button
+                        type="reset"
+                        class="eligibility-reset-btn"
+                    >
+                        <i class="fa-solid fa-rotate-left"></i>
+                        Clear Form
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="eligibility-submit-btn"
+                    >
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Check My Eligibility
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- RESULTS SECTION -->
+            <section class="eligibility-results" id="eligibilityResults">
+
+                <div class="eligibility-results-heading">
+
+                    <div>
+                        <span class="eligibility-eyebrow">
+                            YOUR MATCHES
+                        </span>
+
+                        <h2>Scholarship Recommendations</h2>
+
+                        <p>
+                            Scholarships that may match your qualifications
+                            will appear here.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="eligibility-results-placeholder">
+
+                    <i class="fa-solid fa-file-circle-question"></i>
+
+                    <h3>No Results Yet</h3>
+
+                    <p>
+                        Complete the eligibility form and click
+                        "Check My Eligibility" to see your results.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="scholarship-data.js"></script>
+<script src="eligibility.js"></script>
+
+</body>
+</html>

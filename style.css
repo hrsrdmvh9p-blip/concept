@@ -1208,3 +1208,256 @@ body.zoom-to-card .homepage {
 ::view-transition-image-pair(directory-morph) {
     isolation: isolate;
 }
+
+/* =========================================
+   ISKOURCE - SHARED INNER PAGE LAYOUT
+   HEADER + SIDEBAR + MAIN CONTENT
+========================================= */
+
+/* SHARED BACKGROUND */
+
+html {
+    min-height: 100%;
+    background-color: #3A0F14;
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: #F2E5C6;
+    font-family: Arial, sans-serif;
+    background: transparent;
+}
+
+/* SHARED HEADER */
+
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    background: rgba(58, 15, 20, 0.82);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border-bottom: 1px solid rgba(242, 229, 198, 0.15);
+    z-index: 1000;
+}
+
+/* BRAND */
+
+.top-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #F2E5C6;
+    text-decoration: none;
+}
+
+.top-brand img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.top-brand div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.top-brand strong {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+.top-brand small {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(242, 229, 198, 0.65);
+}
+
+/* SEARCH */
+
+.top-search {
+    position: relative;
+    width: 48%;
+    max-width: 680px;
+}
+
+.top-search input {
+    width: 100%;
+    height: 43px;
+    box-sizing: border-box;
+
+    padding: 10px 20px 10px 45px;
+
+    background: rgba(242, 229, 198, 0.07);
+    border: 1px solid rgba(242, 229, 198, 0.20);
+    border-radius: 30px;
+
+    color: #F2E5C6;
+    font-size: 12px;
+    outline: none;
+}
+
+.top-search input::placeholder {
+    color: rgba(242, 229, 198, 0.65);
+}
+
+.top-search > i {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: rgba(242, 229, 198, 0.65);
+    font-size: 13px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: 0;
+
+    width: 220px;
+    padding: 38px 18px 20px;
+
+    background: rgba(96, 28, 36, 0.32);
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+    z-index: 90;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+
+    color: var(--cream-yellow);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.sidebar-link img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: rgba(242, 229, 198, 0.08);
+            border-color: var(--border);
+        }
+
+        .sidebar-brand {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-brand img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+        
+
+/* SHARED MAIN CONTENT */
+
+.main-content {
+    width: calc(100% - 220px);
+    min-height: 100vh;
+    box-sizing: border-box;
+
+    margin-left: 220px;
+    padding: 125px 3% 50px;
+
+    position: relative;
+    z-index: 1;
+}
+/* ==========================================
+   ELIGIBILITY CHECKER CROSS-PAGE MORPH
+========================================== */
+
+/* Homepage source card */
+.feature-card[href="eligibility.html"] {
+    view-transition-name: eligibility-morph;
+}
+
+/* Entire Eligibility Checker page */
+.eligibility-morph {
+    view-transition-name: eligibility-morph;
+}
+
+/* Same animation settings as Directory */
+::view-transition-group(eligibility-morph) {
+    animation-duration: 1.5s;
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-image-pair(eligibility-morph) {
+    isolation: isolate;
+}
+/* ==========================================
+   TRACKER CROSS-PAGE MORPH
+========================================== */
+
+/* Homepage source card */
+.feature-card[href="tracker.html"] {
+    view-transition-name: tracker-morph;
+}
+
+/* Entire Tracker page */
+.tracker-morph {
+    view-transition-name: tracker-morph;
+}
+
+/* Same animation as Directory */
+::view-transition-group(tracker-morph) {
+    animation-duration: 1.5s;
+    animation-timing-function:
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-image-pair(tracker-morph) {
+    isolation: isolate;
+}

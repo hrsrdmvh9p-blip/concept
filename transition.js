@@ -38,7 +38,11 @@ document.addEventListener("click", function(event) {
     const morphName = getMorphName(destination);
 
     // Let the browser handle the directory shared-element morph
-if (morphName === "directory-morph") {
+if (
+    morphName === "directory-morph" ||
+    morphName === "eligibility-morph" ||
+    morphName === "tracker-morph"
+) {
     return;
 }
 
