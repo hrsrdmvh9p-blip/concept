@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ISKOURCE | Scholarship Tracker</title>
+
+    <!-- Main Website Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tracker Page Styles -->
+    <link rel="stylesheet" href="tracker.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <h2>ISKOURCE</h2>
+            <p>Iskolar Source</p>
+        </div>
+
+        <nav class="sidebar-navigation">
+
+            <a href="index.html" class="nav-link">
+                Home
+            </a>
+
+            <a href="directory.html" class="nav-link">
+                Scholarship Directory
+            </a>
+
+            <a href="tracker.html" class="nav-link active">
+                Scholarship Tracker
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- PAGE HEADER -->
+        <header class="tracker-heading">
+            <div>
+                <p class="tracker-eyebrow">STUDENT DASHBOARD</p>
+                <h1>Scholarship Tracker</h1>
+                <p>Monitor your scholarship applications and track their progress.</p>
+            </div>
+        </header>
+
+
+        <!-- SUMMARY SECTION -->
+        <section class="tracker-summary">
+
+            <div class="tracker-summary-card">
+                <div>
+                <span>Total Applications</span>
+                <h2 id="totalApplications">0</h2>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <p>Pending</p>
+                <h2 id="pendingApplications">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <p>Under Review</p>
+                <h2 id="reviewApplications">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <p>Approved</p>
+                <h2 id="approvedApplications">0</h2>
+            </div>
+
+        </section>
+
+
+        <!-- APPLICATIONS SECTION -->
+        <section class="applications-section">
+
+            <div class="tracker-section-header">
+                <div>
+                    <h2>My Applications</h2>
+                    <p>Keep track of your submitted scholarship applications.</p>
+                </div>
+
+                <button class="add-application-btn">
+                    + Add Application
+                </button>
+            </div>
+
+            <div class="tracker-application-list" id="applicationsContainer">
+                <!-- APPLICATION CARDS WILL BE ADDED HERE -->
+
+            </div>
+
+        </section>
+
+
+        <!-- APPLICATION DETAILS -->
+      <section class="tracker-details-section">
+            <h2>Application Details</h2>
+
+            <div class="tracker-details-placeholder">
+                <p>Select a scholarship application to view its details.</p>
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <script src="tracker.js"></script>
+
+</body>
+</html>

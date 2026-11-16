@@ -1,33 +1,265 @@
-<!doctype html>
-<html>
-    <head>
-        <title>ISKOURCE</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-    <body>
-        <h1 class="gradient-text"> Welcome to ISKOURCE</h1>
-        <p class="neon-subtitle">Where opportunities meet ambition. Your next educational breakthrough starts with one discovery.</p>
-        <button class="neon-button">Your Journey Starts Here</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <section class="card-container">
+    <title>ISKOURCE | Iskolar Source</title>
 
-            <a href="eligibility.html" class="card">
-                <h2 class="gradient-text">Eligibility</h2>
-                <p class="neon-subtitle">Answer a questionnaire to identify scholarships you may qualify</p>
-                <button class="glow-button">Start</button>
+    <link rel="stylesheet" href="style.css">
 
-            </a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-                <a href="scholarships.html" class="card">
-                <h2 class="gradient-text">Scholarships</h2>
-                <p class="neon-subtitle">Discover scholarship opportunities that match your qualifications</p>
-                <button class="glow-button">Explore</button>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page-transition"></div>
+
+    <main class="homepage">
+
+        <!-- BRAND HEADER -->
+        <header class="brand-header">
+
+    <a href="index.html" class="brand-lockup">
+
+        <span class="brand-mark">
+            <img src="images/my-logo.png" alt="ISKOURCE Logo">
+        </span>
+
+        <span class="brand-copy">
+            <strong>ISKOURCE</strong>
+            <small>ISKOLAR SOURCE</small>
+        </span>
+
+    </a>
+
+</header>
+
+        <!-- WELCOME SECTION -->
+        <section class="welcome">
+
+            <div class="hero-brand">
+
+                <span class="hero-mark">
+    <img src="images/my-logo.png" alt="ISKOURCE Logo">
+</span>
+
+                <div class="hero-brand-copy">
+
+                    <h1>ISKOURCE</h1>
+                    <p class="tagline">ISKOLAR SOURCE</p>
+
+                </div>
+
+            </div>
+
+            <p class="welcome-description">
+                Where opportunities meet ambition.
+                Your next educational breakthrough starts with one discovery.
+            </p>
+ 
+
+        </section>
+
+
+        <!-- SEARCH SECTION -->
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <i class="fas fa-search search-icon"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search scholarships, requirements..."
+                    autocomplete="off"
+                >
+
+                <button id="searchButton" aria-label="Search">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- SCHOLARSHIP SEARCH RESULTS -->
+            <div class="scholarship-list">
+
+                <a href="scholarships.html#dost" class="scholarship-card">
+
+                    <span class="result-type">GOVERNMENT</span>
+
+                    <h3>DOST Scholarship</h3>
+
+                    <p>
+                        Science and Technology Scholarship Program
+                    </p>
+
+                    <span class="result-link">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
                 </a>
 
-                
-        
 
-    </body>
+                <a href="scholarships.html#ched" class="scholarship-card">
 
+                    <span class="result-type">GOVERNMENT</span>
+
+                    <h3>CHED Scholarship</h3>
+
+                    <p>
+                        Financial assistance for college students
+                    </p>
+
+                    <span class="result-link">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+                <a href="scholarships.html#sm" class="scholarship-card">
+
+                    <span class="result-type">PRIVATE</span>
+
+                    <h3>SM Foundation Scholarship</h3>
+
+                    <p>
+                        Educational assistance for deserving students
+                    </p>
+
+                    <span class="result-link">
+                        View Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACCESS SECTION -->
+        <section class="quick-access">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">YOUR NEXT STEP</p>
+
+                <h2>Find the Support You Need</h2>
+
+                <p>
+                    Explore tools that help you discover and manage
+                    scholarship opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="card-container">
+
+
+                <!-- DIRECTORY CARD -->
+                <a href="scholarships.html"
+   class="feature-card directory-morph">
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+
+                    <h3>Scholarship Directory</h3>
+
+                    <p>
+                        Discover scholarship opportunities and find
+                        programs that match your goals.
+                    </p>
+
+                    <span class="card-action">
+                        Explore Directory
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- TRACKER CARD -->
+                <a href="tracker.html" class="feature-card">
+
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </span>
+
+                    <h3>Scholarship Tracker</h3>
+
+                    <p>
+                        Keep track of your applications, deadlines,
+                        and scholarship progress.
+                    </p>
+
+                    <span class="card-action">
+                        Track Progress
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- ELIGIBILITY CARD -->
+                <a href="eligibility.html" class="feature-card">
+
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </span>
+
+                    <h3>Eligibility Checker</h3>
+
+                    <p>
+                        Answer a questionnaire to identify
+                        scholarships you may qualify for.
+                    </p>
+
+                    <span class="card-action">
+                        Check Eligibility
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="homepage-footer">
+
+            <a href="index.html" class="footer-brand">
+                ISKOURCE
+            </a>
+
+            <p>
+                ISKOLAR SOURCE · Discover. Prepare. Achieve.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+    <script src="transition.js"></script>
+
+
+</body>
 </html>
